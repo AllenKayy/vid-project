@@ -46,7 +46,7 @@ module.exports = {
         if(!genreId) throw new Error("Id must be a valid number")
 
         const newGenre = genres.find(genre => genre.id === genreId)
-        if (!newGenre) throw new Error(`Genre with the id ${genreId} does not exist`)
+        if (!newGenre) throw new Error(`Genre with the id ${genreId} does not exist`);
         const { genre } = req.body;
         newGenre.genre = genre;
         res.status(201).json({
@@ -68,7 +68,7 @@ module.exports = {
     deleteGenre: (req, res) => {
         const genreId = Number(req.params.id);
         const genre = genres.find(genre => genre.id === genreId)
-        if (!(genreId && genre)) throw new Error("Pass in a valid Id")
+        if (!(genreId && genre)) throw new Error("Pass in a valid Id");
         genres.splice(genres.indexOf(genre), 1);
         res.status(200).json({
             status: "success",

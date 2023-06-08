@@ -1,1 +1,18 @@
-exports.genres = [];
+const { Schema, model } = require('mongoose');
+
+const genreSchema = new Schema({
+    genre: {
+        type: String,
+        required: true,
+        minlength: 3,
+        maxlength: 12,
+        unique: true
+    },
+    description: {
+        type: String,
+        required: true,
+        minlength: 10
+    } 
+})
+
+module.exports = model('Genre', genreSchema);

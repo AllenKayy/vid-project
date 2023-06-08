@@ -1,10 +1,13 @@
 const express = require('express');
 const morgan = require('morgan');
-const bodyParser = require('body-parser');
 require('dotenv').config();
+const bodyParser = require('body-parser');
 const { genreRouter } = require('./src/routes/genreRoutes');
+const connect = require('./src/config/db')
 
 const port = Number(process.env.PORT) || 4000;
+
+connect();
 
 const app = express();
 
